@@ -1,13 +1,11 @@
 import { createStore } from 'vuex'
+// import axios from 'axios'
 
 export default createStore({
   state: {
-    aboutMe: null,
-    education: null,
-    skills: null,
-    workExp: null,
-    projects: null,
-    testimonials: null
+    cars: null,
+    gamingConsoles: null,
+    friends: null,
   },
   getters: {
   },
@@ -25,10 +23,15 @@ export default createStore({
   actions: {
     async getData({commit}){
       let fetchInfo = await fetch('https://chany4.github.io/dejaVue-API/data/data.json')
+      // let fetchInfo = await fetch('https://chany4.github.io/dejaVue-API/data/data.json', info) --> what does that do
+      // let fetchInfo = await axios.get('https://chany4.github.io/dejaVue-API/data/data.json')
       let data = await fetchInfo.json()
-      let {cars,gamingConsoles,friends} = data
+      // method:'post'--> send put--> edit 
+      // let data = await api.json()
+      console.log(data);
+      let {cars,gaming_consoles,friends} = data
       commit('setCars',cars)
-      commit('setGamingConsoles',gamingConsoles)
+      commit('setGamingConsoles',gaming_consoles)
       commit('setFriends',friends)
     }
   },

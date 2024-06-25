@@ -4,7 +4,7 @@
       
     </slot>
     <slot name="consoles">
-
+      
     </slot>
     
   </div>
